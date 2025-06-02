@@ -16,6 +16,10 @@ with col1:
 with col2:
     st.markdown("<br>", unsafe_allow_html=True)  # adds vertical space
     st.image("tipjar_qr.png", width=140)
+    st.markdown(
+        "<p style='text-align: center; font-size: 0.85rem; color: gray;'>☕ Enjoying the app? Help support it.</p>",
+        unsafe_allow_html=True
+    )
 
 email_input = st.text_area("📨 Your Email", height=200)
 
