@@ -1,12 +1,13 @@
 import streamlit as st
 import requests
+from PIL import Image
 
 # ✅ Load API key securely from Streamlit secrets
 openai_api_key = st.secrets["OPENAI_API_KEY"]
 
 st.set_page_config(page_title="Email Tone Adjuster", layout="centered")
 
-# Create three columns: left for title, middle for message, right for QR code
+# --- Layout: Title + QR Code ---
 col1, col2 = st.columns([5, 2])
 
 with col1:
@@ -14,16 +15,10 @@ with col1:
     st.write("Paste your email and choose a tone to rewrite it.")
 
 with col2:
-    st.markdown(
-        """
-        <div style='display: flex; flex-direction: column; align-items: flex-end; margin-top: 10px;'>
-            <img src='tipjar_qr.png' width='140'>
-            <p style='font-size: 0.85rem; color: gray; margin-top: 8px;'>☕ Enjoying the app?<br>Help support it.</p>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-    
+    qr = Image.open("tipjar_qr.png")
+    st.image(qr, width=140)
+
+# --- Layout: Label + Tip Message on same line ---
 st.markdown(
     """
     <div style='display: flex; justify-content: space-between; align-items: center;'>
@@ -33,8 +28,11 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
+# --- Email Input ---
 email_input = st.text_area("", height=200)
 
+# --- Tone Selection ---
 tone_options = [
     "Polite", "Confident", "Formal", "Informal", "Concise",
     "Apologetic", "Appreciative", "Supportive", "Neutral", "Direct",
@@ -43,6 +41,7 @@ tone_options = [
 
 selected_tone = st.selectbox("🎯 Choose a Tone", tone_options)
 
+# --- Rewrite Button ---
 if st.button("🔁 Rewrite Email"):
     if not email_input.strip():
         st.warning("Please paste an email first.")
@@ -55,7 +54,7 @@ if st.button("🔁 Rewrite Email"):
         }
 
         payload = {
-            "model": "gpt-3.5-turbo",  # or "gpt-4" if you have access
+            "model": "gpt-3.5-turbo",
             "messages": [
                 {
                     "role": "system",
