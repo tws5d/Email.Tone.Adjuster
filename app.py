@@ -8,7 +8,7 @@ openai_api_key = st.secrets["OPENAI_API_KEY"]
 st.set_page_config(page_title="Email Tone Adjuster", layout="centered")
 
 # --- Layout: Title + QR Code ---
-col1, col2 = st.columns([4, 2])
+col1, col2 = st.columns([5, 1])
 
 with col1:
     st.markdown(
@@ -23,7 +23,7 @@ with col1:
 
 with col2:
     qr = Image.open("tipjar_qr.png")
-    st.image(qr, width=160)
+    st.image(qr, width=135)
 
 # --- Email Input Label ---
 st.markdown("### 📨 Your Email")
