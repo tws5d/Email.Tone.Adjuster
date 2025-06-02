@@ -7,7 +7,7 @@ openai_api_key = st.secrets["OPENAI_API_KEY"]
 st.set_page_config(page_title="Email Tone Adjuster", layout="centered")
 
 # Create three columns: left for title, middle for message, right for QR code
-col1, col_msg, col2 = st.columns([3, 1, 1])
+col1, col_msg, col2 = st.columns([4, 0.5, 1])
 
 with col1:
     st.title("✉️ Email Tone Adjuster")
