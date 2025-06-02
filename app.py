@@ -14,8 +14,8 @@ with col1:
     st.write("Paste your email and choose a tone to rewrite it.")
 
 with col2:
-    st.image("tipjar_qr.png", width=100)
-    st.caption("☕ Enjoying the app?\nBuy me a coffee!")
+    st.markdown("<br>", unsafe_allow_html=True)  # adds vertical space
+    st.image("tipjar_qr.png", width=140)
 
 email_input = st.text_area("📨 Your Email", height=200)
 
