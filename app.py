@@ -15,7 +15,7 @@ with col1:
 
 with col2:
     st.markdown("<br>", unsafe_allow_html=True)
-    st.image("tipjar_qr.png", width=140)
+    st.markdown("<img src='tipjar_qr.png' width='140' style='margin-left: 10px;'>", unsafe_allow_html=True)
     
 st.markdown(
     """
