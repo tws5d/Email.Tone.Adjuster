@@ -26,7 +26,7 @@ if st.button("🔁 Rewrite Email"):
         st.info(f"Rewriting email in a *{selected_tone.lower()}* tone...")
 
         headers = {
-            "Authorization": f"Bearer {OpenAI_api_key}",
+            "Authorization": f"Bearer {OPENAI_API_KEY}",
             "Content-Type": "application/json"
         }
 
