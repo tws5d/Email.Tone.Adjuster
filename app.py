@@ -22,15 +22,9 @@ with col1:
     )
 
 with col2:
-    qr = Image.open("tipjar_qr.png")
-    st.markdown(
-    """
-    <div style='padding-top: 18px; text-align: right;'>
-        <img src='tipjar_qr.png' width='135'>
-    </div>
-    """,
-    unsafe_allow_html=True
-    )
+    st.markdown("<div style='padding-top: 18px;'>", unsafe_allow_html=True)
+    st.image(qr, width=135)
+    st.markdown("</div>", unsafe_allow_html=True)
 
 # --- Email Input Label ---
 st.markdown("### 📨 Your Email")
