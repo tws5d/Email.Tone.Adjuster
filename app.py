@@ -17,14 +17,16 @@ with col1:
     st.markdown(
         """
         <div style='margin-bottom: 0.5rem;'>
-            <h1 style='margin-bottom: 0; padding-top: 6px;'>✉️ Email Tone Adjuster</h1>
+            <h1 style='margin-bottom: 0;'>✉️ Email Tone Adjuster</h1>
         </div>
         """,
         unsafe_allow_html=True
     )
 
 with col2:
+    st.markdown("<div style='padding-top: 8px;'>", unsafe_allow_html=True)
     st.image(qr, width=135)
+    st.markdown("</div>", unsafe_allow_html=True)
 
 # --- Email Input Label ---
 st.markdown("### 📨 Your Email")
