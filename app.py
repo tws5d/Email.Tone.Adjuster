@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 
 # 🔑 Just paste your Groq API key between the quotes below
-groq_api_key = "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"
+openai_api_key = st.secrets["OPENAI_API_KEY"]
 
 st.set_page_config(page_title="Email Tone Adjuster", layout="centered")
 
@@ -26,7 +26,7 @@ if st.button("🔁 Rewrite Email"):
         st.info(f"Rewriting email in a *{selected_tone.lower()}* tone...")
 
         headers = {
-            "Authorization": groq_api_key,
+            "Authorization": f"Bearer {OpenAI_api_key}",
             "Content-Type": "application/json"
         }
 
@@ -45,7 +45,7 @@ if st.button("🔁 Rewrite Email"):
         }
 
         response = requests.post(
-            "https://api.groq.com/openai/v1/chat/completions",
+            "https://api.openai.com/v1/chat/completions",
             headers=headers,
             json=payload
         )
@@ -55,4 +55,4 @@ if st.button("🔁 Rewrite Email"):
             st.success("✅ Rewritten Email:")
             st.write(rewritten)
         else:
-            st.error(f"❌ Groq error: {response.status_code} - {response.text}")
+            st.error(f"❌ OpenAI error: {response.status_code} - {response.text}")
