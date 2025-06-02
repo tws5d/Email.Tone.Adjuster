@@ -82,10 +82,13 @@ if st.button("🔁 Rewrite Email"):
         else:
             st.error(f"❌ OpenAI error: {response.status_code} - {response.text}")
 
-# --- QR Code Footer (Bottom Right) ---
+# --- QR Code Footer with Donation Message ---
 st.markdown(
     f"""
-    <div style="display: flex; justify-content: flex-end; margin-top: 1.25rem;">
+    <div style="display: flex; flex-direction: column; align-items: flex-end; margin-top: 0.75rem;">
+        <p style="margin: 0 0 0.25rem 0; font-size: 0.85rem; color: #aaa;">
+            If you found this helpful, consider donating – it's not free to run!
+        </p>
         <img src="{qr_base64}" width="135" style="display: block;" />
     </div>
     """,
