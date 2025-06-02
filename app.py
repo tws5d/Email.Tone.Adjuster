@@ -24,8 +24,12 @@ qr_base64 = pil_to_base64(qr)
 st.markdown(
     f"""
     <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-        <h1 style="margin: 0; font-size: 2.2rem;">✉️ Email Tone Adjuster</h1>
-        <img src="{qr_base64}" width="135" style="display: block; margin-top: 0;" />
+        <div style="padding-top: 4px;">
+            <h1 style="margin: 0; font-size: 2.2rem; line-height: 1;">✉️ Email Tone Adjuster</h1>
+        </div>
+        <div>
+            <img src="{qr_base64}" width="135" style="display: block; margin-top: 2px;" />
+        </div>
     </div>
     """,
     unsafe_allow_html=True
