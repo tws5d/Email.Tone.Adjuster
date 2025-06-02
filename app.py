@@ -30,7 +30,7 @@ with col2:
     </div>
     """,
     unsafe_allow_html=True
-)
+    )
 
 # --- Email Input Label ---
 st.markdown("### 📨 Your Email")
