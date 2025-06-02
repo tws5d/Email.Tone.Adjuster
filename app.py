@@ -16,8 +16,8 @@ col1, col2 = st.columns([5, 1])
 with col1:
     st.markdown(
         """
-        <div style='margin-bottom: 0.5rem; padding-top: 10px;'>
-            <h1 style='margin-bottom: 0;'>✉️ Email Tone Adjuster</h1>
+        <div style='margin-bottom: 0.5rem;'>
+            <h1 style='margin-bottom: 0; padding-top: 6px;'>✉️ Email Tone Adjuster</h1>
         </div>
         """,
         unsafe_allow_html=True
