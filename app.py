@@ -22,10 +22,11 @@ qr_base64 = pil_to_base64(qr)
 
 # --- Title and subtitle ---
 st.markdown(
-    f"""
-    <div style="display: flex; justify-content: flex-end; margin-top: 1.25rem;">
-        <img src="{qr_base64}" width="135" style="display: block;" />
-    </div>
+    """
+    <h1 style="margin-bottom: 0.25rem;">✉️ Email Tone Adjuster</h1>
+    <p style="margin-top: 0; margin-bottom: 0.75rem; font-size: 0.9rem;">
+        Paste your email and choose a tone to rewrite it:
+    </p>
     """,
     unsafe_allow_html=True
 )
@@ -84,7 +85,7 @@ if st.button("🔁 Rewrite Email"):
 # --- QR Code Footer (Bottom Right) ---
 st.markdown(
     f"""
-    <div style="display: flex; justify-content: flex-end; margin-top: 1rem;">
+    <div style="display: flex; justify-content: flex-end; margin-top: 1.25rem;">
         <img src="{qr_base64}" width="135" style="display: block;" />
     </div>
     """,
