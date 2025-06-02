@@ -14,12 +14,14 @@ with col1:
     st.write("Paste your email and choose a tone to rewrite it.")
 
 with col2:
-    st.markdown("<br>", unsafe_allow_html=True)  # adds vertical space
+    st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
     st.image("tipjar_qr.png", width=140)
     st.markdown(
-        "<p style='text-align: center; font-size: 0.85rem; color: gray;'>☕ Enjoying the app? Help support it.</p>",
+        "<p style='font-size: 0.85rem; color: gray;'>☕ Enjoying the app?<br>Help support it.</p>",
         unsafe_allow_html=True
     )
+    st.markdown("</div>", unsafe_allow_html=True)
 
 email_input = st.text_area("📨 Your Email", height=200)
 
