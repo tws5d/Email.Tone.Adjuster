@@ -2,32 +2,31 @@ import streamlit as st
 import requests
 from PIL import Image
 
-# ✅ Load API key securely from Streamlit secrets
 openai_api_key = st.secrets["OPENAI_API_KEY"]
-
 st.set_page_config(page_title="Email Tone Adjuster", layout="centered")
 
 # --- Layout: Title + QR Code ---
-col1, col2 = st.columns([6, 1])
+col1, col2 = st.columns([5, 1])
 
 with col1:
     st.markdown(
-        "<h1 style='margin-bottom: 0.25rem;'>✉️ Email Tone Adjuster</h1>",
-        unsafe_allow_html=True
-    )
-    st.markdown(
-        "<p style='margin-top: 0; font-size: 0.9rem;'>Paste your email and choose a tone to rewrite it.</p>",
+        """
+        <div style='margin-bottom: 0.5rem;'>
+            <h1 style='margin-bottom: 0;'>✉️ Email Tone Adjuster</h1>
+            <p style='margin-top: 0; font-size: 0.9rem;'>Paste your email and choose a tone to rewrite it.</p>
+        </div>
+        """,
         unsafe_allow_html=True
     )
 
 with col2:
     qr = Image.open("tipjar_qr.png")
-    st.image(qr, width=130)
+    st.image(qr, width=120)
 
 # --- Label + Tip Message on same line ---
 st.markdown(
     """
-    <div style='display: flex; justify-content: space-between; align-items: center; margin-top: -10px; margin-bottom: 4px;'>
+    <div style='display: flex; justify-content: space-between; align-items: center; margin-top: -10px; margin-bottom: 0.25rem;'>
         <span style='font-weight: 500;'>📨 Your Email</span>
         <span style='font-size: 0.85rem; color: gray;'>☕ Enjoying the app? Help support it.</span>
     </div>
@@ -47,7 +46,6 @@ tone_options = [
 
 selected_tone = st.selectbox("🎯 Choose a Tone", tone_options)
 
-# --- Rewrite Button ---
 if st.button("🔁 Rewrite Email"):
     if not email_input.strip():
         st.warning("Please paste an email first.")
