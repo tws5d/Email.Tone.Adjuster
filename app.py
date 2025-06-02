@@ -16,13 +16,17 @@ with col1:
 with col2:
     st.markdown("<br>", unsafe_allow_html=True)
     st.image("tipjar_qr.png", width=140)
-    st.markdown(
-        "<p style='font-size: 0.85rem; color: gray; text-align: center;'>"
-        "☕ Enjoying the app?<br>Help support it.</p>",
-        unsafe_allow_html=True
-    )
-
-email_input = st.text_area("📨 Your Email", height=200)
+    
+st.markdown(
+    """
+    <div style='display: flex; justify-content: space-between; align-items: center;'>
+        <span style='font-weight: 500;'>📨 Your Email</span>
+        <span style='font-size: 0.85rem; color: gray;'>☕ Enjoying the app? Help support it.</span>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+email_input = st.text_area("", height=200)
 
 tone_options = [
     "Polite", "Confident", "Formal", "Informal", "Concise",
