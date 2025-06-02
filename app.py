@@ -16,20 +16,18 @@ col1, col2 = st.columns([5, 1])
 with col1:
     st.markdown(
         """
-        <div style='margin-bottom: 0.5rem;'>
-            <h1 style='margin-bottom: 0;'>✉️ Email Tone Adjuster</h1>
+        <div style='margin-bottom: 0.5rem; padding-top: 0px;'>
+            <h1 style='margin: 0;'>✉️ Email Tone Adjuster</h1>
+            <p style='margin-top: 0.25rem; font-size: 0.9rem;'>Paste your email and choose a tone to rewrite it:</p>
         </div>
         """,
         unsafe_allow_html=True
     )
 
 with col2:
-    st.markdown("<div style='padding-top: 8px;'>", unsafe_allow_html=True)
+    st.markdown("<div style='padding-top: 4px;'>", unsafe_allow_html=True)
     st.image(qr, width=135)
     st.markdown("</div>", unsafe_allow_html=True)
-
-# --- Email Input Label ---
-st.markdown("### 📨 Your Email")
 
 # --- Email Input ---
 email_input = st.text_area("", height=200)
