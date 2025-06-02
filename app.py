@@ -6,8 +6,16 @@ openai_api_key = st.secrets["OPENAI_API_KEY"]
 
 st.set_page_config(page_title="Email Tone Adjuster", layout="centered")
 
-st.title("✉️ Email Tone Adjuster")
-st.write("Paste your email and choose a tone to rewrite it.")
+# Create two columns: left for title, right for QR code
+col1, col2 = st.columns([3, 1])
+
+with col1:
+    st.title("✉️ Email Tone Adjuster")
+    st.write("Paste your email and choose a tone to rewrite it.")
+
+with col2:
+    st.image("tipjar_qr.png", width=100)
+    st.caption("☕ Enjoying the app?\nBuy me a coffee!")
 
 email_input = st.text_area("📨 Your Email", height=200)
 
