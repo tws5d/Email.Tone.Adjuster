@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 
 # 🔑 Just paste your Groq API key between the quotes below
-groq_api_key = "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"
+groq_api_key = "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"
 
 st.set_page_config(page_title="Email Tone Adjuster", layout="centered")
 
