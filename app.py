@@ -8,20 +8,26 @@ openai_api_key = st.secrets["OPENAI_API_KEY"]
 st.set_page_config(page_title="Email Tone Adjuster", layout="centered")
 
 # --- Layout: Title + QR Code ---
-col1, col2 = st.columns([5, 2])
+col1, col2 = st.columns([6, 1])
 
 with col1:
-    st.title("✉️ Email Tone Adjuster")
-    st.write("Paste your email and choose a tone to rewrite it.")
+    st.markdown(
+        "<h1 style='margin-bottom: 0.25rem;'>✉️ Email Tone Adjuster</h1>",
+        unsafe_allow_html=True
+    )
+    st.markdown(
+        "<p style='margin-top: 0; font-size: 0.9rem;'>Paste your email and choose a tone to rewrite it.</p>",
+        unsafe_allow_html=True
+    )
 
 with col2:
     qr = Image.open("tipjar_qr.png")
-    st.image(qr, width=140)
+    st.image(qr, width=130)
 
-# --- Layout: Label + Tip Message on same line ---
+# --- Label + Tip Message on same line ---
 st.markdown(
     """
-    <div style='display: flex; justify-content: space-between; align-items: center;'>
+    <div style='display: flex; justify-content: space-between; align-items: center; margin-top: -10px; margin-bottom: 4px;'>
         <span style='font-weight: 500;'>📨 Your Email</span>
         <span style='font-size: 0.85rem; color: gray;'>☕ Enjoying the app? Help support it.</span>
     </div>
