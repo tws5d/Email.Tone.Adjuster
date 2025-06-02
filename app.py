@@ -23,7 +23,10 @@ qr_base64 = pil_to_base64(qr)
 # --- Title only ---
 st.markdown(
     """
-    <h1 style="margin: 0;">✉️ Email Tone Adjuster</h1>
+    <h1 style="margin-bottom: 0.25rem;">✉️ Email Tone Adjuster</h1>
+    <p style="margin-top: 0; margin-bottom: 0.5rem; font-size: 0.9rem;">
+        Paste your email and choose a tone to rewrite it:
+    </p>
     """,
     unsafe_allow_html=True
 )
