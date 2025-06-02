@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-# 🔑 Just paste your Groq API key between the quotes below
+# ✅ Load API key securely from Streamlit secrets
 openai_api_key = st.secrets["OPENAI_API_KEY"]
 
 st.set_page_config(page_title="Email Tone Adjuster", layout="centered")
@@ -26,11 +26,12 @@ if st.button("🔁 Rewrite Email"):
         st.info(f"Rewriting email in a *{selected_tone.lower()}* tone...")
 
         headers = {
-            "Authorization": f"Bearer {OPENAI_API_KEY}",
+            "Authorization": f"Bearer {openai_api_key}",
             "Content-Type": "application/json"
         }
 
         payload = {
+            "model": "gpt-3.5-turbo",  # or "gpt-4" if you have access
             "messages": [
                 {
                     "role": "system",
@@ -40,8 +41,7 @@ if st.button("🔁 Rewrite Email"):
                     "role": "user",
                     "content": email_input
                 }
-            ],
-            "model": "mixtral-8x7b-32768"
+            ]
         }
 
         response = requests.post(
