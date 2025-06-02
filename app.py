@@ -23,7 +23,7 @@ with col1:
 
 with col2:
     qr = Image.open("tipjar_qr.png")
-    st.image(qr, width=120)
+    st.image(qr, width=160)
 
 # --- Email Input Label ---
 st.markdown("### 📨 Your Email")
