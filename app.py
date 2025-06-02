@@ -25,13 +25,13 @@ st.markdown(
     f"""
     <div style="display: flex; justify-content: space-between; align-items: flex-start;">
         <div style="flex-grow: 1;">
-            <h1 style="margin: 0;">✉️ Email Tone Adjuster</h1>
-            <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem;">
+            <h1 style="margin: 0; line-height: 1; font-size: 2.2rem;">✉️ Email Tone Adjuster</h1>
+            <p style="margin: 0.2rem 0 0 0; font-size: 0.9rem;">
                 Paste your email and choose a tone to rewrite it:
             </p>
         </div>
         <div>
-            <img src="{qr_base64}" width="135" />
+            <img src="{qr_base64}" width="135" style="display: block;" />
         </div>
     </div>
     """,
