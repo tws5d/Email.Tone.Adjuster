@@ -20,13 +20,18 @@ def pil_to_base64(img):
 
 qr_base64 = pil_to_base64(qr)
 
-# --- Clean Top Layout: QR + Title Only ---
+# --- Title only ---
 st.markdown(
-    f"""
-    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-        <span style="font-size: 2.2rem; font-weight: bold;">✉️ Email Tone Adjuster</span>
-        <img src="{qr_base64}" width="135" style="display: block;" />
-    </div>
+    """
+    <h1 style="margin: 0;">✉️ Email Tone Adjuster</h1>
+    """,
+    unsafe_allow_html=True
+)
+
+# --- Instructions ---
+st.markdown(
+    """
+    <p style="margin-top: 0.25rem; font-size: 0.9rem;">Paste your email and choose a tone to rewrite it:</p>
     """,
     unsafe_allow_html=True
 )
@@ -81,3 +86,13 @@ if st.button("🔁 Rewrite Email"):
             st.write(rewritten)
         else:
             st.error(f"❌ OpenAI error: {response.status_code} - {response.text}")
+
+# --- QR Code Footer (Bottom Right) ---
+st.markdown(
+    f"""
+    <div style="display: flex; justify-content: flex-end; margin-top: 2rem;">
+        <img src="{qr_base64}" width="135" style="display: block;" />
+    </div>
+    """,
+    unsafe_allow_html=True
+)
