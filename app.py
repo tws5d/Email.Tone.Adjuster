@@ -15,7 +15,7 @@ with col1:
 
 with col_msg:
     st.markdown(
-        "<p style='font-size: 0.85rem; color: gray; margin-top: 95px;'>"
+        "<p style='font-size: 0.85rem; color: gray; margin-top: 115px;'>"
         "☕ Enjoying the app?<br>Help support it.</p>",
         unsafe_allow_html=True
     )
