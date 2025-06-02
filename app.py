@@ -31,7 +31,7 @@ if st.button("🔁 Rewrite Email"):
           "Authorization": f"Bearer {groq_api_key}",
           "Content-Type": "application/json"
         }
-      response = requests.post("https://api.groq.com/openai/v1/chat/completions", headers=headers, json=payload)
+        response = requests.post("https://api.groq.com/openai/v1/chat/completions", headers=headers, json=payload)
 if response.status_code == 200:
   rewritten = response.json()["choices"][0]["message"]["content"]
 st.success("✅ Rewritten Email:")
