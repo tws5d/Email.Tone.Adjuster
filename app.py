@@ -55,4 +55,4 @@ if st.button("🔁 Rewrite Email"):
             st.success("✅ Rewritten Email:")
             st.write(rewritten)
         else:
-            st.error("❌ Failed to get a response from Groq.")
+            st.error(f"❌ Groq error: {response.status_code} - {response.text}")
