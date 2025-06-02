@@ -2,7 +2,9 @@ import streamlit as st
 import requests
 from PIL import Image
 
+# ✅ Load API key securely from Streamlit secrets
 openai_api_key = st.secrets["OPENAI_API_KEY"]
+
 st.set_page_config(page_title="Email Tone Adjuster", layout="centered")
 
 # --- Layout: Title + QR Code ---
@@ -23,16 +25,8 @@ with col2:
     qr = Image.open("tipjar_qr.png")
     st.image(qr, width=120)
 
-# --- Label + Tip Message on same line ---
-st.markdown(
-    """
-    <div style='display: flex; justify-content: space-between; align-items: center; margin-top: -10px; margin-bottom: 0.25rem;'>
-        <span style='font-weight: 500;'>📨 Your Email</span>
-        <span style='font-size: 0.85rem; color: gray;'>☕ Enjoying the app? Help support it.</span>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+# --- Email Input Label ---
+st.markdown("### 📨 Your Email")
 
 # --- Email Input ---
 email_input = st.text_area("", height=200)
@@ -46,6 +40,7 @@ tone_options = [
 
 selected_tone = st.selectbox("🎯 Choose a Tone", tone_options)
 
+# --- Rewrite Button ---
 if st.button("🔁 Rewrite Email"):
     if not email_input.strip():
         st.warning("Please paste an email first.")
