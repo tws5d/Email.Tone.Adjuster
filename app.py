@@ -11,20 +11,17 @@ st.set_page_config(page_title="Email Tone Adjuster", layout="centered")
 qr = Image.open("tipjar_qr.png")
 
 # --- Layout: Title + QR Code ---
-st.markdown(
-    """
-    <div style='display: flex; justify-content: space-between; align-items: flex-start;'>
-        <div>
-            <h1 style='margin: 0;'>✉️ Email Tone Adjuster</h1>
-            <p style='margin: 0.25rem 0 0 0; font-size: 0.9rem;'>Paste your email and choose a tone to rewrite it:</p>
-        </div>
-        <div>
-            <img src='tipjar_qr.png' width='135'>
-        </div>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+col1, col2 = st.columns([5, 1], gap="small")
+
+with col1:
+    st.markdown(
+        "<h1 style='margin-bottom: 0.1rem;'>✉️ Email Tone Adjuster</h1>"
+        "<p style='margin-top: 0.1rem; font-size: 0.9rem;'>Paste your email and choose a tone to rewrite it:</p>",
+        unsafe_allow_html=True
+    )
+
+with col2:
+    st.image(qr, width=135)
 
 # --- Email Input ---
 email_input = st.text_area("", height=200)
