@@ -7,6 +7,9 @@ openai_api_key = st.secrets["OPENAI_API_KEY"]
 
 st.set_page_config(page_title="Email Tone Adjuster", layout="centered")
 
+# --- Load QR Image ---
+qr = Image.open("tipjar_qr.png")
+
 # --- Layout: Title + QR Code ---
 col1, col2 = st.columns([5, 1])
 
