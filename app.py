@@ -26,7 +26,7 @@ if st.button("🔁 Rewrite Email"):
         st.info(f"Rewriting email in a *{selected_tone.lower()}* tone...")
 
         headers = {
-            "Authorization": f"Bearer {groq_api_key}",
+            "Authorization": groq_api_key,
             "Content-Type": "application/json"
         }
 
