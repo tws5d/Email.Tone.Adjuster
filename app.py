@@ -14,15 +14,8 @@ with col1:
     st.write("Paste your email and choose a tone to rewrite it.")
 
 with col2:
-    left, right = st.columns([1, 1])
-    with left:
-        st.markdown(
-            "<p style='font-size: 0.85rem; color: gray; margin-top: 35px;'>"
-            "☕ Enjoying the app?<br>Help support it.</p>",
-            unsafe_allow_html=True
-        )
-    with right:
-        st.image("tipjar_qr.png", width=120)
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.image("tipjar_qr.png", width=140)
 
 email_input = st.text_area("📨 Your Email", height=200)
 
