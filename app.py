@@ -1,10 +1,8 @@
 import streamlit as st
-import os
 import requests
-from dotenv import load_dotenv
 
-load_dotenv()
-groq_api_key = os.getenv("GROQ_API_KEY")
+# 🔑 Just paste your Groq API key between the quotes below
+groq_api_key = "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"
 
 st.set_page_config(page_title="Email Tone Adjuster", layout="centered")
 
@@ -26,22 +24,35 @@ if st.button("🔁 Rewrite Email"):
         st.warning("Please paste an email first.")
     else:
         st.info(f"Rewriting email in a *{selected_tone.lower()}* tone...")
-        # Placeholder for rewritten result
+
         headers = {
-          "Authorization": f"Bearer {groq_api_key}",
-          "Content-Type": "application/json"
+            "Authorization": f"Bearer {groq_api_key}",
+            "Content-Type": "application/json"
         }
-        response = requests.post("https://api.groq.com/openai/v1/chat/completions", headers=headers, json=payload)
+
+        payload = {
+            "messages": [
+                {
+                    "role": "system",
+                    "content": f"You are an assistant that rewrites emails in a {selected_tone.lower()} tone."
+                },
+                {
+                    "role": "user",
+                    "content": email_input
+                }
+            ],
+            "model": "mixtral-8x7b-32768"
+        }
+
+        response = requests.post(
+            "https://api.groq.com/openai/v1/chat/completions",
+            headers=headers,
+            json=payload
+        )
+
         if response.status_code == 200:
-          rewritten = response.json()["choices"][0]["message"]["content"]
-          st.success("✅ Rewritten Email:")
-          st.write(rewritten)
+            rewritten = response.json()["choices"][0]["message"]["content"]
+            st.success("✅ Rewritten Email:")
+            st.write(rewritten)
         else:
-          st.error("❌ Failed to get a response from API.")
-
-
-
-
-
-
-      
+            st.error("❌ Failed to get a response from Groq.")
