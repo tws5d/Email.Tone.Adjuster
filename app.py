@@ -1,27 +1,42 @@
 import streamlit as st
 import requests
 from PIL import Image
+import base64
+from io import BytesIO
 
 # ✅ Load API key securely from Streamlit secrets
 openai_api_key = st.secrets["OPENAI_API_KEY"]
 
 st.set_page_config(page_title="Email Tone Adjuster", layout="centered")
 
-# --- Load QR Image ---
+# --- Load and convert QR Image to base64 ---
 qr = Image.open("tipjar_qr.png")
 
-# --- Layout: Title + QR Code ---
-col1, col2 = st.columns([5, 1], gap="small")
+def pil_to_base64(img):
+    buffer = BytesIO()
+    img.save(buffer, format="PNG")
+    img_str = base64.b64encode(buffer.getvalue()).decode("utf-8")
+    return f"data:image/png;base64,{img_str}"
 
-with col1:
-    st.markdown(
-        "<h1 style='margin-bottom: 0.1rem;'>✉️ Email Tone Adjuster</h1>"
-        "<p style='margin-top: 0.1rem; font-size: 0.9rem;'>Paste your email and choose a tone to rewrite it:</p>",
-        unsafe_allow_html=True
-    )
+qr_base64 = pil_to_base64(qr)
 
-with col2:
-    st.image(qr, width=135)
+# --- Layout: Header + QR (perfect top alignment) ---
+st.markdown(
+    f"""
+    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+        <div style="flex-grow: 1;">
+            <h1 style="margin: 0;">✉️ Email Tone Adjuster</h1>
+            <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem;">
+                Paste your email and choose a tone to rewrite it:
+            </p>
+        </div>
+        <div>
+            <img src="{qr_base64}" width="135" />
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 # --- Email Input ---
 email_input = st.text_area("", height=200)
