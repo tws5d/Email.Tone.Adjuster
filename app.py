@@ -13,11 +13,16 @@ with col1:
     st.title("✉️ Email Tone Adjuster")
     st.write("Paste your email and choose a tone to rewrite it.")
 
-from PIL import Image
-
-qr = Image.open("tipjar_qr.png")
-st.image(qr, width=140, output_format="PNG", caption=None)
-st.markdown("<style>img { margin-left: 10px; }</style>", unsafe_allow_html=True)
+with col2:
+    st.markdown(
+        """
+        <div style='display: flex; flex-direction: column; align-items: flex-end; margin-top: 10px;'>
+            <img src='tipjar_qr.png' width='140'>
+            <p style='font-size: 0.85rem; color: gray; margin-top: 8px;'>☕ Enjoying the app?<br>Help support it.</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
     
 st.markdown(
     """
